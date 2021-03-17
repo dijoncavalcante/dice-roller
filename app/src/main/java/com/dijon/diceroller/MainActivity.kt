@@ -2,6 +2,7 @@ package com.dijon.diceroller
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -26,22 +27,18 @@ class MainActivity : AppCompatActivity() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
         val luckyNumber = 4
-
         var message = "fail"
+        val diceImage: ImageView = findViewById(R.id.imageView)
 
         when (diceRoll) {
             //luckyNumber -> println("")
-            1 -> message = "So sorry! You rolled a 1. Try again!"
-            2 -> message = "Sadly, you rolled a 2. Try again!"
-            3 -> message = "Unfortunately, you rolled a 3. Try again!"
-            4 -> message = "You won!"
-            5 -> message = "Don't cry! You rolled a 5. Try again!"
-            6 -> message = "Apologies! you rolled a 6. Try again!"
+            1 -> diceImage.setImageResource(R.drawable.dice_1)
+            2 -> diceImage.setImageResource(R.drawable.dice_2)
+            3 -> diceImage.setImageResource(R.drawable.dice_3)
+            4 -> diceImage.setImageResource(R.drawable.dice_4)
+            5 -> diceImage.setImageResource(R.drawable.dice_5)
+            6 -> diceImage.setImageResource(R.drawable.dice_6)
         }
-
-        // Update the screen with the dice roll
-        val resultTextView: TextView = findViewById(R.id.textView)
-        "$luckyNumber \n $message".also { resultTextView.text = it }
     }
 }
 
